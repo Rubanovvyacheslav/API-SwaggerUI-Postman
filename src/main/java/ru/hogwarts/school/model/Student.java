@@ -1,18 +1,22 @@
 package ru.hogwarts.school.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class Student {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     private long id;
     private String name;
     private int age;
+    @ManyToOne
+    private Faculty faculty;
 
+    public Student() {
+    }
 
     public long getId() {
         return id;
@@ -36,6 +40,14 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
 
     @Override
