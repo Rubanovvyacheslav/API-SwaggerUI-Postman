@@ -4,10 +4,12 @@ import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
 public class Avatar {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String filePath;
     private long fileSize;

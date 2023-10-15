@@ -15,6 +15,11 @@ public class Student {
     @ManyToOne
     private Faculty faculty;
 
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public Student() {
     }
 

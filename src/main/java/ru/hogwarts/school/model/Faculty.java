@@ -19,6 +19,10 @@ public class Faculty {
     @OneToMany
     private List<Student> studentList;
 
+    public Faculty(String name, String color) {
+        this.name = name;
+        this.color = color;
+    }
 
     public Faculty() {
     }

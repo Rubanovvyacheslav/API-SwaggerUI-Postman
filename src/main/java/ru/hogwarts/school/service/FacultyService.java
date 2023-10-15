@@ -59,6 +59,6 @@ public class FacultyService {
     }
 
     public List<Student> getStudentsByFacultyId(Long id) {
-        return studentService.hetByFacultyId(id);
+        return studentService.getByFacultyId(id);
     }
 }
