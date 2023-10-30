@@ -19,6 +19,9 @@ public class Avatar {
     @OneToOne
     private Student student;
 
+    public Avatar() {
+    }
+
     public Long getId() {
         return id;
     }
