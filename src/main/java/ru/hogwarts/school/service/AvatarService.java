@@ -66,7 +66,7 @@ public class AvatarService {
             graphics2D.drawImage(image, 0, 0, 100, height, null);
             graphics2D.dispose();
 
-            ImageIO.write(preview,getExtensions(filePath.getFileName().toString()), baos);
+            ImageIO.write(preview, getExtensions(filePath.getFileName().toString()), baos);
             return baos.toByteArray();
         }
     }
@@ -81,7 +81,7 @@ public class AvatarService {
     }
 
     public Page<Avatar> getWithPageable(int page, int count) {
-        return avatarRepository.findAll(PageRequest.of(page,count));
+        return avatarRepository.findAll(PageRequest.of(page, count));
     }
 
 }
