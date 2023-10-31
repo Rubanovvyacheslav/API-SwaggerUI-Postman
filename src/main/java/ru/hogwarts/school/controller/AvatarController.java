@@ -21,7 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping
 public class AvatarController {
-    AvatarService avatarService;
+    private final AvatarService avatarService;
 
     public AvatarController(AvatarService avatarService) {
         this.avatarService = avatarService;

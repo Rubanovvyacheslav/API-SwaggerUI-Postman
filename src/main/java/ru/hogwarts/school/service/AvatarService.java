@@ -25,7 +25,7 @@ public class AvatarService {
     @Value("avatars")
     private String avatarsDir;
     private final AvatarRepository avatarRepository;
-    StudentService studentService;
+    private final StudentService studentService;
 
     public AvatarService(AvatarRepository avatarRepository, StudentService studentService) {
         this.avatarRepository = avatarRepository;
@@ -45,7 +45,8 @@ public class AvatarService {
         ) {
             bis.transferTo(bos);
         }
-        Avatar avatar = avatarRepository.findByStudentId(studentId).orElseGet(Avatar::new);//Avatar avatar = findAvatar(studentId);
+//        Avatar avatar = avatarRepository.findByStudentId(studentId).orElseGet(Avatar::new);//Avatar avatar = findAvatar(studentId);
+        Avatar avatar = findAvatar(studentId);
         avatar.setStudent(student);
         avatar.setFilePath(filePath.toString());
         avatar.setFileSize(avatarFile.getSize());
