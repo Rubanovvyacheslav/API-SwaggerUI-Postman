@@ -86,4 +86,19 @@ public class StudentService {
         logger.info("Был вызван метод getByFacultyId");
         return studentRepository.findByFacultyId(facultyId);
     }
+
+    public List<String> getAllStudentsWithFirstLetterH() {
+        return studentRepository.findAll().stream()
+                .map(student -> student.getName().toUpperCase())
+                .filter(name -> name.startsWith("H"))
+                .sorted()
+                .collect(Collectors.toList());
+    }
+
+    public double getAvgAgeStream() {
+        return studentRepository.findAll().stream()
+                .mapToDouble(stident -> (double) stident.getAge())
+                .average()
+                .orElse(0);
+    }
 }

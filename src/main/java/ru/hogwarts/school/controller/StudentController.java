@@ -83,5 +83,15 @@ public class StudentController {
         return studentService.getLastFive();
     }
 
+    @GetMapping("/name-start-h")
+    public List<String> getNamesWithFirstLetterH() {
+        return studentService.getAllStudentsWithFirstLetterH();
+    }
+
+    @GetMapping("/avg-age-stream")
+    public double getAvgAgeStream() {
+        return studentService.getAvgAgeStream();
+    }
+
 
 }
