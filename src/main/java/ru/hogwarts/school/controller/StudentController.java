@@ -93,5 +93,15 @@ public class StudentController {
         return studentService.getAvgAgeStream();
     }
 
+    @GetMapping("/print-threads")
+    public void printThreads() {
+        studentService.threadStudents();
+    }
+
+    @GetMapping("/print-threads-sync")
+    public void printThreadsSync() {
+        studentService.threadStudentsSync();
+    }
+
 
 }

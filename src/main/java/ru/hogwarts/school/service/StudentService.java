@@ -101,4 +101,50 @@ public class StudentService {
                 .average()
                 .orElse(0);
     }
+
+    public void threadStudents() {
+        List<Student> students = studentRepository.findAll();
+
+        printThread(students.get(0));
+        printThread(students.get(1));
+
+        Thread thread1 = new Thread(() -> {
+            printThread(students.get(2));
+            printThread(students.get(3));
+        });
+        thread1.start();
+
+        Thread thread2 = new Thread(() -> {
+            printThread(students.get(4));
+            printThread(students.get(5));
+        });
+        thread2.start();
+    }
+
+    public void threadStudentsSync() {
+        List<Student> students = studentRepository.findAll();
+
+        printThreadSync(students.get(0));
+        printThreadSync(students.get(1));
+
+        Thread thread1 = new Thread(() -> {
+            printThreadSync(students.get(2));
+            printThreadSync(students.get(3));
+        });
+        thread1.start();
+
+        Thread thread2 = new Thread(() -> {
+            printThreadSync(students.get(4));
+            printThreadSync(students.get(5));
+        });
+        thread2.start();
+    }
+
+    private void printThread(Student student) {
+        System.out.println(Thread.currentThread().getName() + " " + student.getName());
+    }
+
+    private synchronized void printThreadSync(Student student) {
+        printThread(student);
+    }
 }
